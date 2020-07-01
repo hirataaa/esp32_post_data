@@ -1,6 +1,7 @@
 ### Outline
-Temp & Humidity data from DHT22<br>
-Weight data from HX711<br>
+・Temp & Humidity data from DHT22<br>
+・Weight data from HX711<br>
+・WiFi Connecring<br>
 <br>
 ### Done
 Copy & Paste<br>
