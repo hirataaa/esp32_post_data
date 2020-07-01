@@ -1,12 +1,12 @@
 ### Outline
-Temp & Humidity data from DHT22
-Weight data from HX711
-
+Temp & Humidity data from DHT22<br>
+Weight data from HX711<br>
+<br>
 ### Done
-Copy & Paste
-
+Copy & Paste<br>
+<br>
 ### To Do
-・Run
-・Weight (x1) -> Weight (x3)
-・Checking data sending
+・Run<br>
+・Weight (x1) -> Weight (x3)<br>
+・Checking data sending<br>
 
