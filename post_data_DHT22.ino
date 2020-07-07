@@ -8,7 +8,7 @@ const char* serverName = "http://***:7001/data";
 
 #include <DHT.h>
 const int PIN_DHT = 4;
-DHT dht(PIN_DHT,DHT11);
+DHT dht(PIN_DHT,DHT22);
 
 //#include "HX711.h"
 //#define DT_PIN 4
@@ -97,8 +97,8 @@ void loop(void) {
   if ((millis() - lastTime) > timerDelay) {
     t = time(NULL);
     tm = localtime(&t);
-    // 0分になったら．
-    if(tm->tm_min == 0){
+    //0分になったらpost(==) 常には(!=)
+    if(tm->tm_min != 0){
       post_data(); // http post
     }
   }
