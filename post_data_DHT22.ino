@@ -4,16 +4,16 @@ const char* ssid = "***";
 const char* password = "***";
 
 #include <HTTPClient.h>
-const char* serverName = "http://***:7002/post_data";
+const char* serverName = "http://***:7001/data";
 
 #include <DHT.h>
-const int PIN_DHT = 13;
+const int PIN_DHT = 4;
 DHT dht(PIN_DHT,DHT11);
 
-#include "HX711.h"
-#define DT_PIN 4
-#define SCK_PIN 5
-HX711 scale;
+//#include "HX711.h"
+//#define DT_PIN 4
+//#define SCK_PIN 5
+//HX711 scale;
 
 #include <time.h>
 #define JST 3600* 9
@@ -48,10 +48,10 @@ void setup() {
     // dht sensor set
     dht.begin();
 
-    // scaling set
-    scale.begin(DT_PIN, SCK_PIN);
-    scale.set_scale(536); // scaling factor
-    scale.tare();
+//    // scaling set
+//    scale.begin(DT_PIN, SCK_PIN);
+//    scale.set_scale(536); // scaling factor
+//    scale.tare();
 
     // time set
     configTime( JST, 0, "ntp.nict.jp", "ntp.jst.mfeed.ad.jp");
@@ -64,14 +64,14 @@ void post_data(){
     
   // Your Domain name with URL path or IP address with path
   http.begin(serverName);
-  
+   
   // Specify content-type header
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
   
   // humidity and temperature
   float h = dht.readHumidity();
   float t = dht.readTemperature();
-  float w = scale.get_units(3);
+//  float w = scale.get_units(3);
   
   
   String jsonData = "{";
@@ -79,8 +79,8 @@ void post_data(){
   jsonData += String(t);
   jsonData += ",\"humidity\":";
   jsonData += String(h);
-  jsonData += ",\"weight\":";
-  jsonData += String(w);
+//  jsonData += ",\"weight\":";
+//  jsonData += String(w);
   jsonData += "}";
   
   Serial.println(jsonData);
