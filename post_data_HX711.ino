@@ -72,7 +72,7 @@ void post_data(){
   
   
   String jsonData = "{";
-  jsonData += ",\"weight1\":";
+  jsonData += "\"weight1\":";
   jsonData += String(w1);
   jsonData += "}";
   
@@ -90,8 +90,8 @@ void loop(void) {
   if ((millis() - lastTime) > timerDelay) {
     t = time(NULL);
     tm = localtime(&t);
-    // 0分になったら．
-    if(tm->tm_min == 0){
+    // 0分になったらpost(==) 随時は(!=)
+    if(tm->tm_min != 0){
       post_data(); // http post
     }
   }
